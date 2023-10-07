@@ -1,0 +1,27 @@
+<!-- .EJERCICIO 1: DÓNDE ESTÁ EL RATÓN
+Realiza un programa que mediante eventos y el uso del objeto event te muestre en todo
+momento la posición actual del ratón en pantalla. Para mostrarlo modificaremos de forma dinámica
+un elemento HTML (Ejemplo un <p>) que nos muestre la posición actual del ratón. -->
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ej1</title>
+    </head>
+   
+    <body>
+        <p id="mouse"></p>
+        <!--<p class="miClase"></p>
+        <p></p>-->
+    </body>
+     <script>
+        function printMouseCoord(event) {
+            document.getElementById("mouse").innerHTML="mouseX: "+event.clientX + "<br /> mouseY: "+event.clientY; //he puesto el br solo para probar uno encima de otro
+            //document.getElementsByTagName('p')[1].innerHTML="mouseX: "+event.clientX + "<br /> mouseY: "+event.clientY; 
+            //document.getElementsByClassName("miClase")[0].innerHTML="mouseX: "+event.clientX + "<br /> mouseY: "+event.clientY;
+        }
+      document.addEventListener("mousemove",printMouseCoord);
+    </script>
+    </html>
