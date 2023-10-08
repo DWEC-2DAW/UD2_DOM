@@ -6,56 +6,59 @@ elementos desaparecidos (pero no los eliminados). -->
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ej2</title>
 </head>
-<body>
-<!-- <p id="1" onclick="hideElementFunction(1)">p1</p> -->
-<p onclick="hideElement(this)" oncontextmenu="removeElement(this)">p1</p>
-<p onclick="hideElement(this)" oncontextmenu="removeElement(this)">p2</p>
-<p onclick="hideElement(this)" oncontextmenu="removeElement(this)">p3</p>
-<p onclick="hideElement(this)" oncontextmenu="removeElement(this)">p4</p>
-<p onclick="hideElement(this)" oncontextmenu="removeElement(this)">p5</p>
-<p onclick="hideElement(this)" oncontextmenu="removeElement(this)">p6</p>
-<p onclick="hideElement(this)" oncontextmenu="removeElement(this)">p7</p>
-<p onclick="hideElement(this)" oncontextmenu="removeElement(this)">p8</p>
-<p onclick="hideElement(this)" oncontextmenu="removeElement(this)">p9</p>
-<p onclick="hideElement(this)" oncontextmenu="removeElement(this)">p10</p>
 
-<button onclick="showElements()">Reaparecer</button>
- 
+<body>
+    <!-- <p id="1" onclick="hideElementFunction(1)">p1</p> -->
+    <p onclick="hideElement(this)" oncontextmenu="removeElement(this)">p1</p>
+    <p onclick="hideElement(this)" oncontextmenu="removeElement(this)">p2</p>
+    <p onclick="hideElement(this)" oncontextmenu="removeElement(this)">p3</p>
+    <p onclick="hideElement(this)" oncontextmenu="removeElement(this)">p4</p>
+    <p onclick="hideElement(this)" oncontextmenu="removeElement(this)">p5</p>
+    <p onclick="hideElement(this)" oncontextmenu="removeElement(this)">p6</p>
+    <p onclick="hideElement(this)" oncontextmenu="removeElement(this)">p7</p>
+    <p onclick="hideElement(this)" oncontextmenu="removeElement(this)">p8</p>
+    <p onclick="hideElement(this)" oncontextmenu="removeElement(this)">p9</p>
+    <p onclick="hideElement(this)" oncontextmenu="removeElement(this)">p10</p>
+
+    <button onclick="showElements()">Reaparecer</button>
+
+    <script>
+        window.oncontextmenu = (event) => { //Arrow function recibo el evento cuando se produce
+            event.preventDefault();   // para el comportamiento por defecto del evento
+        }
+
+        function removeElement(object) {
+            //console.log("This: ", object);
+            object.remove();
+        }
+
+        function hideElement(object) {
+            // console.log("This: ", object);
+            /*   let obj = document.getElementById('1');
+            console.log("ID: ", obj); */
+            object.style.display = "none";
+        }
+        function showElements() {
+            //console.log("restaurar elementos");
+            let arrayRestore = document.getElementsByTagName('p')
+            for (let index = 0; index < arrayRestore.length; index++) {
+                if (arrayRestore[index].style.display == "none") {  //el que esta oculto le aplicaré un block para que reaparezca
+
+                    arrayRestore[index].style.display = "block"
+                }
+
+            }
+        }
+
+    </script>
+
 </body>
 
-<script> 
-    window.oncontextmenu= (event) => { //Arrow function recibo el evento cuando se produce
-        event.preventDefault();   // para el comportamiento por defecto del evento
-    }
 
-    function removeElement(object){
-        //console.log("This: ", object);
-        object.remove();
-    }
-
-    function hideElement(object){
-       // console.log("This: ", object);
-        /*   let obj = document.getElementById('1');
-        console.log("ID: ", obj); */
-        object.style.display = "none";
-    }
- function showElements(){
-    //console.log("restaurar elementos");
-    let arrayRestore = document.getElementsByTagName('p')
-    for (let index = 0; index < arrayRestore.length; index++) {
-        if (arrayRestore[index].style.display == "none"){  //el que esta oculto le aplicaré un block para que reaparezca
-           
-            arrayRestore[index].style.display = "block"
-        }
-        
-    }
- }
-    
-</script>
 </html>
-
