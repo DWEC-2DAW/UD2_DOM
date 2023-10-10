@@ -30,4 +30,50 @@ Divide el ejercicio en dos: primero, la obtención de datos: intenta crear una e
 títulos que puedas manejar como te interese. Luego, a partir de esa estructura, genera el contenido
 del <pre> -->
 
-    
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej4</title>
+</head>
+
+<body>
+
+    <h1>Tema 1</h1>
+    <div>
+        <h2>Apartado 1</h2>
+    </div>
+    <h2>Apartado 2</h2>
+    <h1>Tema 2</h1>
+    <h2>Introducción</h2>
+
+    <h1>Prueba Tema 3</h1>
+    <h2>Prueba Introducción 2</h2>
+
+
+
+    <pre id="crazyGame"></pre>
+
+    <script>
+        let tags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+        let object = [];
+        let counter = 1;
+        for (let i = 0; i < tags.length; i++) {
+
+            let indexPre = document.getElementsByTagName(tags[i]); //identifico  etiqueta
+            //console.log(indexPre);
+            for (let j = 0; j < indexPre.length; j++) {
+
+                object.push(counter + '.-' + indexPre[j].innerHTML + '\n'); //texto inner
+                counter++;
+            }
+        }
+        //console.log(object);
+        document.getElementById('crazyGame').innerText = object.join('');
+
+    </script>
+</body>
+
+</html>
